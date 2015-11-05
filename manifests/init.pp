@@ -60,6 +60,14 @@
 #   Boolean.
 #   Default: true
 #
+# [*elasticsearch_username*]
+#   String.
+#   Default: user
+#
+# [*elasticsearch_password*]
+#   String.
+#   Default: pass
+#
 # === Examples
 #
 # * Installation:
@@ -71,19 +79,21 @@
 # * Justin Lambert <mailto:jlambert@letsevenup.com>
 #
 class kibana (
-  $version             = $::kibana::params::version,
-  $base_url            = $::kibana::params::base_url,
-  $install_path        = $::kibana::params::install_path,
-  $tmp_dir             = $::kibana::params::tmp_dir,
-  $port                = $::kibana::params::port,
-  $bind                = $::kibana::params::bind,
-  $es_url              = $::kibana::params::es_url,
-  $es_preserve_host    = $::kibana::params::es_preserve_host,
-  $kibana_index        = $::kibana::params::kibana_index,
-  $default_app_id      = $::kibana::params::default_app_id,
-  $request_timeout     = $::kibana::params::request_timeout,
-  $shard_timeout       = $::kibana::params::shard_timeout,
-  $verify_ssl          = $::kibana::params::verify_ssl,
+  $version                = $::kibana::params::version,
+  $base_url               = $::kibana::params::base_url,
+  $install_path           = $::kibana::params::install_path,
+  $tmp_dir                = $::kibana::params::tmp_dir,
+  $port                   = $::kibana::params::port,
+  $bind                   = $::kibana::params::bind,
+  $es_url                 = $::kibana::params::es_url,
+  $es_preserve_host       = $::kibana::params::es_preserve_host,
+  $kibana_index           = $::kibana::params::kibana_index,
+  $default_app_id         = $::kibana::params::default_app_id,
+  $request_timeout        = $::kibana::params::request_timeout,
+  $shard_timeout          = $::kibana::params::shard_timeout,
+  $verify_ssl             = $::kibana::params::verify_ssl,
+  $elasticsearch_username = $::kibana::params::elasticsearch_username,
+  $elasticsearch_password = $::kibana::params::elasticsearch_password,
 ) inherits kibana::params {
 
   if !is_integer($port) {
